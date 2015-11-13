@@ -1,0 +1,475 @@
+body {
+    margin: 0;
+
+    font-size: 62.5%;
+    line-height: 1;
+}
+
+.container {
+    position: relative;
+
+    width: 133vh;
+    height: 100vh;
+    margin: auto;
+}
+
+.device {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: 2em;
+    padding: 96px;
+
+    border: 4px solid #767676;
+    border-radius: 45px;
+    background-color: #FFF;
+}
+
+.viewport {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background: url('images/background.jpg') no-repeat 50% 50%;
+    background-size: auto 100%;
+}
+
+.desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 82%;
+
+    text-align: center;
+}
+    .desktop section {
+        overflow: hidden;
+
+        margin: 0 auto 999px;
+    }
+
+    .desktop .icon {
+        position: relative;
+        z-index: 999;
+
+        float: left;
+
+        width:20%;
+        padding-bottom: 20%;
+
+        cursor: move;
+
+        -webkit-user-drag: element;
+    }
+    [draggable=true] {
+        cursor: move;
+    }
+    .desktop .icon:nth-of-type(5n+1){
+        clear: both;
+    }
+
+    .desktop .icon img {
+        position:absolute;
+        top: 0;
+        left: 0;
+
+        width:90%;
+        height:90%;
+        padding: 5%;
+    }
+
+    .desktop input[type=radio] {
+        display: none;
+    }
+    .desktop label {
+        position: absolute;
+        z-index: 10;
+        bottom: 1.5em;
+        left: 24em;
+
+        display: block;
+
+        width: .5em;
+        height: .5em;
+
+        cursor: pointer;
+        transition: .25s;
+
+        border: .2em solid transparent;
+        border-radius: 100%;
+        background-color: #111;
+        background-image: linear-gradient(transparent, hsla(0,0%,0%,.25));
+    }
+    .desktop label:after {
+        position: absolute;
+        top: -.2em;
+        right: -.2em;
+        bottom: -.2em;
+        left: -.2em;
+
+        content: '';
+
+        border-radius: 100%;
+        box-shadow: inset 0 0 0 .2em #111,
+        inset 0 2px 2px #000,
+        0 1px 1px hsla(0,0%,100%,.25);
+    }
+    .desktop input:checked + label {
+        background-color: #fff;
+    }
+    .desktop .display:nth-child(1) label {
+        left: 14em;
+    }
+    .desktop .display:nth-child(2) label {
+        left: 18em;
+    }
+    .desktop .display {
+        position: absolute;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .desktop section {
+        visibility: hidden;
+
+        transition: .5s;
+
+        opacity: 0;
+    }
+    .desktop input:checked ~ section {
+        z-index: 10;
+
+        visibility: visible;
+
+        opacity: 1;
+    }
+
+.dock {
+    position: absolute;
+    bottom: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 18%;
+
+    text-align: center;
+
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+
+    line-height: 18%;
+}
+
+    .dock .icon {
+        display: inline-block;
+    }
+
+    .dock img {
+        height: 50px;
+    }
+
+.camera {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+
+    width: 12px;
+    height: 12px;
+    margin: 0 0 0 -12px;
+
+    border: 4px solid #767676;
+    border-radius: 12px;
+    background: #767676;
+    box-shadow: inset 0 0 0 2px #FFF;
+}
+
+.button {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+
+    width: 50px;
+    height: 50px;
+    margin: 0 0 0 -25px;
+
+    border: 4px solid #767676;
+    border-radius: 50px;
+    background: #FFF;
+}
+
+    .button:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        box-sizing: border-box;
+        width: 22px;
+        height: 22px;
+        margin: -11px 0 0 -11px;
+
+        content: '';
+
+        border: 3px solid #767676;
+        border-radius: 6px;
+    }
+
+/* ----------- iPad mini ----------- */
+
+/* Landscape and portret */
+@media only screen
+and (min-width: 768px) {
+
+    .dock {
+        height: 90px;
+
+        line-height: 90px;
+    }
+        .dock img {
+            height: 75px;
+
+            vertical-align: middle;
+        }
+}
+
+
+/* Landscape */
+/* 4:3 aspect ratio */
+@media only screen
+and (min-width: 1024px)
+    /*and (min-height: 768px)*/ {
+    .viewport {
+        background-size: 100% auto;
+
+    }
+
+    .camera {
+        top: 50%;
+        left: 48px;
+    }
+
+    .button {
+        top: 50%;
+        right: 24px;
+        left: auto;
+    }
+
+    .desktop section {
+        padding: 0 20%;
+    }
+
+    .desktop .display:nth-child(1) label {
+        left: 33em;
+    }
+    .desktop .display:nth-child(2) label {
+        left: 43em;
+    }
+
+    .desktop .icon {
+        width: 90px;
+        height: 90px;
+        padding-bottom: 0;
+    }
+    .desktop .icon img {
+        width: 90px;
+        height: 90px;
+        padding: 5px;
+    }
+}
+
+/* Portrait */
+@media only screen
+and (min-width: 768px)
+and (max-width: 1024px) {
+    .container {
+        width: 75vh;
+        height: 100vh;
+        padding: 0;
+    }
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (min-width: 320px)
+and (max-width: 768px)
+{
+    .dock {
+        height: 50px;
+    }
+    .camera {
+        width: 6px;
+        height: 6px;
+
+        border-width: 3px;
+        box-shadow: inset 0 0 0 1px #FFF;
+    }
+}
+
+/* Portrait */
+@media only screen
+and (min-width: 320px)
+and (max-width: 568px) {
+
+    .container {
+        width: 56.25vh;
+        height: 100vh;
+    }
+    .speaker {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+
+        width: 80px;
+        height: 3px;
+        margin: 0 0 0 -43px;
+
+        border: 3px solid #767676;
+        border-radius: 6px;
+    }
+
+        .speaker:after {
+            position: absolute;
+            top: -3px;
+            right: -35px;
+
+            width: 10px;
+            height: 10px;
+
+            content: '';
+
+            border-radius: 10px;
+            background: #767676;
+        }
+
+    .camera {
+        top: 25px;
+
+        margin: 0 0 0 -6px;
+    }
+
+    .viewport {
+        width: 100%;
+        height: 100%;
+    }
+
+    .device {
+        padding: 9.2em 2.6em;
+    }
+
+    .desktop {
+        height: 87%;
+    }
+
+    .desktop .icon {
+        width:25%;
+        padding-bottom: 25%;
+    }
+    .desktop .icon:nth-of-type(5n+1){
+        clear: none;
+    }
+    .desktop .icon:nth-of-type(4n+1){
+        clear: both;
+    }
+
+}
+
+/* Landscape */
+/* 16:9 aspect ratio */
+@media only screen
+and (min-width: 568px)
+and (max-width: 768px) {
+    .container {
+        width: 100vw;
+        height: 56.25vw;
+    }
+
+    .viewport {
+        background-size: 100% auto;
+    }
+
+    .device {
+        padding: 1em 8em;
+    }
+
+    .camera {
+        top: 50%;
+        left: 2em;
+
+        margin: -6px 0 0;
+
+    }
+
+    .button {
+        top: 50%;
+        right: 1em;
+        left: auto;
+
+        margin: -25px 0 0;
+    }
+
+    .speaker {
+        position: absolute;
+        top: 50%;
+        left: 4em;
+
+        width: .3em;
+        height: 8em;
+        margin: -4em 0 0;
+
+        border: .3em solid #767676;
+        border-radius: 2em;
+    }
+
+    .speaker:after {
+        position: absolute;
+        top: -4em;
+        right: -0.3em;
+
+        width: 1em;
+        height: 1em;
+
+        content: '';
+
+        border-radius: 1em;
+        background: #767676;
+    }
+    .desktop .display:nth-child(1) label {
+        left: 50%;
+
+        margin-left: -3em;
+    }
+    .desktop .display:nth-child(2) label {
+        left: 50%;
+
+        margin-left: 3em;
+    }
+
+    .desktop section {
+        padding: 0 20%;
+    }
+
+    /* switcher */
+    .device:after {
+        position: absolute;
+        bottom: 40px;
+        left: -10px;
+
+        width: 6px;
+        height: 80px;
+
+        content: '';
+
+        border-radius: 0.75em 0 0 0.75em;
+        background: #767676;
+    }
+}
